@@ -4,8 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "start": "node index.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "fs-extra": "^8.1.0",
+    "semver": "^6.3.0",
+    "webpack": "^4.41.2"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2"
+  }
 }
