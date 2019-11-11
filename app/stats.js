@@ -1,3 +1,8 @@
+/**
+ * Entry point of the project.
+ * Process all the needed actions to get the statistic of a package
+ */
+
 const install = require('./install');
 const version = require('./version');
 const build = require('./build');

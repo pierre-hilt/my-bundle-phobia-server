@@ -1,3 +1,8 @@
+/**
+ * Create the index to import the module to build.
+ * Compile the project using Webpack.
+ */
+
 const path = require('path');
 const fs = require('fs-extra');
 

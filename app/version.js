@@ -1,3 +1,6 @@
+/**
+ * Call NPM registry to retrieve the last 3 versions and last major version
+ */
 const request = require('request');
 const semver = require('semver');
 
@@ -29,7 +32,7 @@ const Version = {
 
         let previousVersion = undefined;
         if (currentMajorVersion > 0) {
-          // find the first version that is no the latest major version
+          // find the first version that is not the latest major version
           previousVersion = allSortedVersions
             .reverse()
             .find(v => semver.major(v) !== currentMajorVersion);

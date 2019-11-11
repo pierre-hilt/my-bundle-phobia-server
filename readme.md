@@ -32,3 +32,4 @@ Right now, the consumer of the API needs to wait the end of all builds to start 
 The API could be split in several APIs, one to determine the versions, then an API to install
 and build each version.
 Add more logging on the API.
+Add more error handling, for now errors are returned without processing.

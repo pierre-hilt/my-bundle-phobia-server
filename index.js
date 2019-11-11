@@ -20,6 +20,7 @@ app.get('/api/stats', async function(req, res) {
       const packageStats = await stats(packageName);
       res.send(packageStats);
     } catch (err) {
+      // Return generic error in case of catched error.
       res.status(500).send({
         error: err.toString()
       });
