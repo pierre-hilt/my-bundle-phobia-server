@@ -6,6 +6,9 @@ const zlib = require('zlib');
 const fs = require('fs-extra');
 const path = require('path');
 
+const NodeCache = require('node-cache');
+const myCache = new NodeCache();
+
 function getMinifiedSize(jsonStats) {
   return jsonStats.assets.find(asset => asset.name === 'main.bundle.js').size;
 }
@@ -37,6 +40,15 @@ async function stats(packageName) {
   const versions = await version.getLatestVersions(packageName);
   for (const versionToInstall of versions) {
     const versionedName = `${packageName}@${versionToInstall}`;
+
+    const cachedValue = myCache.get(versionedName);
+
+    if (cachedValue) {
+      console.log('Value found in cache', versionedName);
+      buildStats[versionToInstall] = cachedValue;
+      continue;
+    }
+
     const installPath = install.generateInstall(versionedName);
 
     install.installPackage(versionedName, installPath);
@@ -56,10 +68,14 @@ async function stats(packageName) {
       }
     }
 
-    buildStats[versionToInstall] = {
+    const buildStat = {
       size: getMinifiedSize(jsonStats),
       gzip: getGzipSize(installPath)
     };
+
+    myCache.set(versionedName, buildStat);
+
+    buildStats[versionToInstall] = buildStat;
   }
   return buildStats;
 }
