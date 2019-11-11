@@ -19,8 +19,9 @@ describe('install util', () => {
   });
 
   test('should install a package with a version', () => {
-    const installPath = install.generateInstall('react');
-    install.installPackage('react', installPath, '15.0.0');
+    const versionedName = 'react@15.0.0';
+    const installPath = install.generateInstall(versionedName);
+    install.installPackage(versionedName, installPath);
     expect(installPath).toEqual(expect.stringContaining('react'));
     expect(fs.existsSync(path.join(installPath, 'node_modules/react'))).toBeTruthy();
     const packageJson = require(path.resolve(

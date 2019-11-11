@@ -15,12 +15,9 @@ const Install = {
     const id = shortId.generate().slice(0, 3);
     return path.join(_installPath, `${packageName}-${id}`);
   },
-  installPackage(packageName, installPath, version) {
+  installPackage(packageName, installPath) {
     fs.mkdirpSync(installPath);
     fs.writeFileSync(path.join(installPath, 'package.json'), JSON.stringify({ dependencies: {} }));
-    if (version) {
-      packageName += '@' + version;
-    }
     childProcess.execSync(
       `npm install ${packageName} --no-package-lock --progress false --loglevel error`,
       {
