@@ -10,10 +10,13 @@ const shortId = require('shortid');
 
 const _installPath = 'tmp/package-build';
 
+const sanitize = require('sanitize-filename');
+
 const Install = {
   generateInstall(packageName) {
     const id = shortId.generate().slice(0, 3);
-    return path.join(_installPath, `${packageName}-${id}`);
+    const fileName = sanitize(`${packageName}-${id}`, { replacement: '-' });
+    return path.join(_installPath, fileName);
   },
   installPackage(packageName, installPath) {
     fs.mkdirpSync(installPath);
