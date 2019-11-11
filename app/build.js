@@ -13,9 +13,9 @@ const Build = {
     return indexPath;
   },
 
-  compile(packageName, installPath) {
+  compile(packageName, installPath, externals) {
     const indexPath = this.createIndex(packageName, installPath);
-    const compiler = webpack(getWebpackConf(indexPath, installPath));
+    const compiler = webpack(getWebpackConf(indexPath, installPath, externals));
 
     return new Promise((resolve, reject) => {
       compiler.run((err, stats) => {
