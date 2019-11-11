@@ -2,6 +2,8 @@
 
 This project is a re-write of Bundle Phobia Backend.
 
+[Link to UI project](https://github.com/pierre-hilt/my-bundle-phobia-ui).
+
 ## Get versions
 
 The last 3 versions and the last major version of a package is retrieved calling
