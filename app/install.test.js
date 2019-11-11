@@ -3,10 +3,6 @@ const fs = require('fs-extra');
 const path = require('path');
 
 describe('install util', () => {
-  afterAll(done => {
-    fs.remove('tmp').then(_ => done());
-  });
-
   test('should install a package without a version', () => {
     const installPath = install.generateInstall('react');
     install.installPackage('react', installPath);

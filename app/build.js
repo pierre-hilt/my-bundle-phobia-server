@@ -13,7 +13,8 @@ const Build = {
     return indexPath;
   },
 
-  compile(indexPath, installPath) {
+  compile(packageName, installPath) {
+    const indexPath = this.createIndex(packageName, installPath);
     const compiler = webpack(getWebpackConf(indexPath, installPath));
 
     return new Promise((resolve, reject) => {

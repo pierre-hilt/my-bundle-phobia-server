@@ -14,8 +14,7 @@ describe('build util', () => {
   test('should build the project', done => {
     const installPath = install.generateInstall('react');
     install.installPackage('react', installPath);
-    const indexPath = build.createIndex('react', installPath);
-    build.compile(indexPath, installPath).then(({ stats, err }) => {
+    build.compile('react', installPath).then(({ stats, err }) => {
       expect(fs.existsSync(path.join(installPath, 'bundle.js'))).toBeTruthy();
       done();
     });
@@ -24,8 +23,7 @@ describe('build util', () => {
   test('should build the project', done => {
     const installPath = install.generateInstall('semver', '6.3.0');
     install.installPackage('semver', installPath);
-    const indexPath = build.createIndex('semver', installPath);
-    build.compile(indexPath, installPath).then(({ stats, err }) => {
+    build.compile('semver', installPath).then(({ stats, err }) => {
       expect(fs.existsSync(path.join(installPath, 'bundle.js'))).toBeTruthy();
       done();
     });
