@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@angular/common": "^7.2.15",
+    "terser-webpack-plugin": "^2.2.1",
+    "webpack": "^4.41.2"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.10"
+  }
+}
