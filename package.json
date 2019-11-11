@@ -16,6 +16,7 @@
     "semver": "^6.3.0",
     "shortid": "^2.2.15",
     "terser-webpack-plugin": "^2.2.1",
+    "validate-npm-package-name": "^3.0.0",
     "webpack": "^4.41.2",
     "zlib": "^1.0.5"
   },
